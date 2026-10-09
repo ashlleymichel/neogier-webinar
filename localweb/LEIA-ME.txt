@@ -8,7 +8,6 @@ Estrutura esperada em /public_html/webinar:
   index.html
   styles.css
   script.js
-  .htaccess
   assets/
   api/
     inscricao.php
@@ -18,3 +17,6 @@ Ative um certificado SSL para cada subdominio.
 
 A pasta correta e a minuscula: /public_html/webinar.
 No servidor, Webinar e webinar podem ser pastas diferentes.
+
+IMPORTANTE: nao coloque um arquivo .htaccess dentro da pasta webinar.
+Esta versao chama diretamente api/inscricao.php e nao precisa de rewrite.
