@@ -21,7 +21,7 @@ module.exports = async function handler(req, res) {
     payload.id = body.id;
     const response = await fetch(ENDPOINT, {
       method: 'POST', body: new URLSearchParams(payload),
-      signal: AbortSignal.timeout(25000), redirect: 'follow'
+      signal: AbortSignal.timeout(55000), redirect: 'follow'
     });
     if (!response.ok) return res.status(502).json({ok: false});
     const result = await response.json();

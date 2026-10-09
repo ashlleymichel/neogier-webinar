@@ -30,7 +30,7 @@ form.addEventListener('submit', async event => {
   try {
     const response = await fetch(form.dataset.endpoint, {
       method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({...data, id: pending.id}), signal: AbortSignal.timeout(30000)
+      body: JSON.stringify({...data, id: pending.id}), signal: AbortSignal.timeout(65000)
     });
     const result = await response.json();
     if (!response.ok || result.ok !== true || result.id !== pending.id) throw new Error('unconfirmed');
