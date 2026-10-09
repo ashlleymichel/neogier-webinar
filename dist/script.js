@@ -26,6 +26,7 @@ form.addEventListener('submit', async event => {
   if (!pending || pending.signature !== signature) pending = {signature, id: crypto.randomUUID()};
   sending = true;
   button.disabled = true;
+  button.dataset.loading = 'true';
   form.setAttribute('aria-busy', 'true');
   try {
     const response = await fetch(form.dataset.endpoint, {
@@ -44,6 +45,7 @@ form.addEventListener('submit', async event => {
   } finally {
     sending = false;
     button.disabled = false;
+    delete button.dataset.loading;
     form.removeAttribute('aria-busy');
     status.hidden = false;
     status.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'});

@@ -54,3 +54,59 @@
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23238346'/%3E%3Cpath d='m9 16 4.5 4.5L23 11' fill='none' stroke='white' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 #form-status[hidden] { display: none; }
+
+/* Estado de envio: resposta visual imediata sem alterar o texto aprovado. */
+button[type=submit][data-loading="true"] {
+  background: #0c4160;
+  color: #fff;
+  transform: none;
+}
+button[type=submit][data-loading="true"]::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border: 2px solid #ffffff66;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: submit-spin .75s linear infinite;
+}
+button[type=submit][data-loading="true"] span { display: none; }
+@keyframes submit-spin { to { transform: rotate(360deg); } }
+
+/* Tópicos apresentados como cartões independentes. */
+.topics {
+  gap: 18px;
+  border: 0;
+}
+.topic,
+.topic + .topic {
+  min-height: 235px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px #0a2b4210;
+}
+.topic-top {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+  justify-content: center;
+  border-radius: 14px;
+  background: #fff2e9;
+}
+@media(max-width:760px) {
+  .topics { gap: 14px; }
+  .topic,
+  .topic + .topic,
+  .topic:nth-child(3),
+  .topic:nth-child(n+3) {
+    min-height: 0;
+    padding: 22px;
+    border: 1px solid var(--line);
+  }
+}
+@media(max-width:520px) {
+  .topics { grid-template-columns: 1fr; }
+}
