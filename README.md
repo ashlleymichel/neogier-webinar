@@ -12,7 +12,7 @@ python3 -m http.server 8080 --directory dist
 
 ## Inscrições
 
-O botão está desativado enquanto não houver integração real de inscrições. O JavaScript mantém a validação dos campos, mas não envia nem armazena dados. Ao implementar a integração, conectar o serviço, ativar o botão e definir os estados de envio com textos aprovados pelo responsável pela página. Não colocar chaves privadas no JavaScript.
+Formulário conectado a `/api/inscricao`, função Vercel que encaminha os dados ao Apps Script. Confirma sucesso apenas após resposta positiva com o mesmo ID. Tentativas repetidas do mesmo envio são deduplicadas. Em caso de erro, os campos são preservados. O envio de e-mails ainda não está configurado.
 
 ## Copy
 
@@ -30,4 +30,4 @@ A publicação via Sites não foi concluída porque a conta atingiu o limite de 
 
 ## Integração Vercel
 
-`api/inscricao.js` encaminha os dados ao Apps Script e confirma a resposta antes de apresentar sucesso. A URL fornecida retornou HTTP 403 sem autenticação; manter `data-endpoint` vazio até corrigir a implantação e testar. Depois, configurar `/api/inscricao` no formulário. Mensagens de sucesso e erro aprovadas pelo usuário. O formulário não envia e-mails.
+`api/inscricao.js` encaminha os dados ao Apps Script e confirma a resposta antes de apresentar sucesso. A implantação do Google foi liberada e confirmou o registro de teste em 09/10/2026. O formulário usa `/api/inscricao`. Mensagens de sucesso e erro aprovadas pelo usuário. O formulário não envia e-mails.
