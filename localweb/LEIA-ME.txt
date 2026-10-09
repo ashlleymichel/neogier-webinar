@@ -1,0 +1,20 @@
+PUBLICACAO NA LOCALWEB
+
+Envie o CONTEUDO desta pasta para /public_html/webinar.
+Nao envie a pasta localweb como uma subpasta.
+
+Estrutura esperada em /public_html/webinar:
+
+  index.html
+  styles.css
+  script.js
+  .htaccess
+  assets/
+  api/
+    inscricao.php
+
+Os dois subdominios podem usar essa mesma pasta caso devam exibir o mesmo site.
+Ative um certificado SSL para cada subdominio.
+
+A pasta correta e a minuscula: /public_html/webinar.
+No servidor, Webinar e webinar podem ser pastas diferentes.
