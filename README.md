@@ -27,3 +27,7 @@ Azul principal `#00192e` e laranja `#ff710a`, aproximados das referências. Logo
 Sintaxe JavaScript conferida; prévia conferida no navegador; largura de 390px sem rolagem horizontal; formulário atualmente desativado até a integração, sem envio de dados.
 
 A publicação via Sites não foi concluída porque a conta atingiu o limite de hospedagem. Estes arquivos podem ser publicados em qualquer hospedagem estática.
+
+## Integração Vercel
+
+`api/inscricao.js` encaminha os dados ao Apps Script e confirma a resposta antes de apresentar sucesso. A URL fornecida retornou HTTP 403 sem autenticação; manter `data-endpoint` vazio até corrigir a implantação e testar. Depois, configurar `/api/inscricao` no formulário. Mensagens de sucesso e erro aprovadas pelo usuário. O formulário não envia e-mails.
