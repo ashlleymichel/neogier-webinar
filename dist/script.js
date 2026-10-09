@@ -34,7 +34,7 @@ form.addEventListener('submit', async event => {
     });
     const result = await response.json();
     if (!response.ok || result.ok !== true || result.id !== pending.id) throw new Error('unconfirmed');
-    status.textContent = 'Inscrição recebida!';
+    status.textContent = 'Inscrição concluída!';
     status.dataset.state = 'success';
     form.reset();
     pending = null;
@@ -46,5 +46,6 @@ form.addEventListener('submit', async event => {
     button.disabled = false;
     form.removeAttribute('aria-busy');
     status.hidden = false;
+    status.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'});
   }
 });
